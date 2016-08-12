@@ -106,7 +106,7 @@ To create API key, visit <a href=\"https://console.developers.google.com/\" targ
 
 //Settings to be saved
 echo "
-<table id=\"gdrive-settings\" class=\"form-table\">
+<table id=\"gdrive-settings\" class=\"form-table\" aria-live=\"assertive\">
 	<tr><td colspan=\"2\"><h2>API KEY - Google Drive Viewer (All REQUIRED)</h2></td></tr> 
        <tr valign=\"top\">
         <th scope=\"row\">Google Drive API Key</th>
@@ -255,7 +255,7 @@ var promise = jQuery.getJSON( url, function( data, status){
 });
 promise.done(function( data ){
 
-var inner='<table id=\"glist-$divid\" cellpadding=\"5\"  aria-live=\"assertive\"><tr><th>View</th>';
+var inner='<table id=\"glist-$divid\" cellpadding=\"5\" aria-live=\"assertive\"><tr><th>View</th>';
 
 /*<th>Type</th><th>View</th>*/
 
