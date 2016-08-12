@@ -255,7 +255,7 @@ var promise = jQuery.getJSON( url, function( data, status){
 });
 promise.done(function( data ){
 
-var inner='<table id=\"glist-$divid\" cellpadding=\"5\"><tr><th>View</th>';
+var inner='<table id=\"glist-$divid\" cellpadding=\"5\"  aria-live=\"assertive\"><tr><th>View</th>';
 
 /*<th>Type</th><th>View</th>*/
 
@@ -291,7 +291,7 @@ function loadSub(folderId,hId) {
 	sub.done(function( data ){
 
 
-		var inner='<table id=\"glist-$divid\" cellpadding=\"5\" style=\"max-width:100%\"><tr><th>View</th>';
+		var inner='<table id=\"glist-$divid\" cellpadding=\"5\"  aria-live=\"assertive\" style=\"max-width:100%\"><tr><th>View</th>';
 
 /*<th>Type</th><th>View</th>*/
 
@@ -313,7 +313,7 @@ function loadSub(folderId,hId) {
 
 }
 </script>
-<div id=\"return-to-root-$divid\"></div><div id='$divid'><h2 style=\"color:white;padding:20px;max-width:100%\">Loading Drive Folder...</h2></div>
+<div id=\"return-to-root-$divid\"  aria-live=\"assertive\"></div><div id='$divid'  aria-live=\"assertive\"><h2 style=\"color:white;padding:20px;max-width:100%\">Loading Drive Folder...</h2></div>
 
 </body>";
 
