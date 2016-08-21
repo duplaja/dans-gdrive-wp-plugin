@@ -16,7 +16,7 @@ Shortcodes:
 
 -Default Display `[dandrive]` (defaults to 1st drive)
 
--Optional Attributes Ex:`[dandrive drive=1 divid=mydrive height:400 width:300]`
+-Optional Attributes Ex:`[dandrive drive=1 divid=mydrive height=400 width=300 rbutton=no]`
 
 -drive= (number of the drive you want, defaults to 1 if not entered)
 
@@ -25,6 +25,8 @@ Shortcodes:
 -height= (maximum height in pixels, defaults to auto. If this is set, a scroll bar will appear if your div overflows. Enter a number only).
 
 -width = (maximum width in pixels, defaults to 400. Enter a number only)
+
+-rbutton = (no means don't display return to initial folder button. Omit to display (default behaviour))
 
 To create API key, visit Google Developers Console Then, follow bellow;
 
