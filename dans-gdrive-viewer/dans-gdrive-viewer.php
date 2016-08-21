@@ -91,12 +91,13 @@ echo "<script>function addRow(nextnum,nextdisp){
 <br>
 <b>Shortcodes:</b>
 <ul style=\"list-style-type:square\"><li>Default Display [dandrive] (defaults to 1st drive)</li></ul>
-Optional Attributes Ex:[dandrive drive=1 divid=mydrive height=400 width=300]
+Optional Attributes Ex:[dandrive drive=1 divid=mydrive height=400 width=300 rbutton=no]
 <ul style=\"list-style-type:square\">
 <li>drive= (number of the drive you want, defaults to 1 if not entered)</li>
 <li>divid= (id of the div your calendar is stored in, for custom theming. Defaults to random string to allow multiple per page)</li>
 <li>height= (maximum height in pixels, defaults to auto. If this is set, a scroll bar will appear if your div overflows. Enter a number only).</li>
 <li>width = (maximum width in pixels, defaults to 400. Enter a number only)</li>
+<li>rbutton = (no, to not display return to initial folder button, if you have files only in the folder directly linked with no subfolders. Otherwise, leave this attribute off).</li>
 </ul>
 <br>
 To create API key, visit <a href=\"https://console.developers.google.com/\" target=\"_blank\">Google Developers Console</a> Then, follow bellow;
@@ -177,12 +178,14 @@ function dandrive_display($atts) {
 		  'divid' => $randdiv,
 		  'height' => 'auto',
 		  'width' => '400',
+		  'rbutton' => 'yes',
         ), $atts, 'dandrive' );
 
 	$drive = $atts['drive'];
 	$divid = $atts['divid'];
 	$maxheight = $atts['height'];
 	$maxwidth = $atts['width'];
+	$rbutton = $atts['rbutton'];
 
 	//adds pixels to height
 	if ($maxheight!='auto') {
@@ -270,9 +273,16 @@ for (i = 0; i < data.files.length; i++) {
 
 inner += '</table>';
 
-	document.getElementById('$divid').innerHTML = inner;
-	document.getElementById('return-to-root-$divid').innerHTML = '<table><tr><td><button onClick=loadSub(\''+folderId+'\',\''+folderId+'\',\'$gdrive_api_key\')>Return To Initial Folder</button></td></tr></table>';
+	document.getElementById('$divid').innerHTML = inner;";
 
+if ($rbutton == 'yes') {
+
+	$disp .= "
+document.getElementById('return-to-root-$divid').innerHTML = '<table><tr><td><button onClick=loadSub(\''+folderId+'\',\''+folderId+'\',\'$gdrive_api_key\')>Return To Initial Folder</button></td></tr></table>';";
+
+}
+
+$disp .= "
 }).fail(function(){
 
 })
@@ -312,8 +322,13 @@ function loadSub(folderId,hId) {
 	});
 
 }
-</script>
-<div id=\"return-to-root-$divid\"  aria-live=\"assertive\"></div><div id='$divid'  aria-live=\"assertive\"><h2 style=\"color:white;padding:20px;max-width:100%\">Loading Drive Folder...</h2></div>
+</script>";
+
+if ($rbutton == 'yes') {
+
+	$disp .= "<div id=\"return-to-root-$divid\"  aria-live=\"assertive\"></div>";
+}
+$disp .= "<div id='$divid'  aria-live=\"assertive\"><h2 style=\"color:white;padding:20px;max-width:100%\">Loading Drive Folder...</h2></div>
 
 </body>";
 
