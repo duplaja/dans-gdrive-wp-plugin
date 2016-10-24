@@ -2,22 +2,13 @@
 
 /**
 * Plugin Name: Dans Google Drive Viewer
-* Plugin URI: https://convexcode.com
-* Description: A custom Google Drive Viewer Plugin
-* Version: 0.1
-* Author: Dan Dulaney
-* Author URI: https://convexcode.com
+* Plugin URI: https://www.wptechguides.com
+* Description: A custom Google Drive Viewer w/ Folder Transversal and File Export
+* Version: 1.0
+* Author: Dan D
+* Author URI: https://www.convexcode.com
 **/
 
-//enqueues all css files needed
-function gdrive_enqueue_style() {
-
-/*
-
-	wp_enqueue_style( 'gcal-flow-style', plugin_dir_url( __FILE__ ) . 'js/jquery-gcal-flow/jquery.gcal_flow.css', false ); 
-
-*/
-}
 
 //enqueues all js files needed
 function gdrive_enqueue_script() {
@@ -25,8 +16,6 @@ function gdrive_enqueue_script() {
 	wp_enqueue_script( 'dans-gdrive-js', plugin_dir_url( __FILE__ ) . 'js/dandrive.js', false ); 
 
 }
-
-add_action( 'wp_enqueue_scripts', 'gdrive_enqueue_style' );
 add_action( 'wp_enqueue_scripts', 'gdrive_enqueue_script' );
 
 
@@ -153,7 +142,7 @@ echo "</td></tr>";
 }
 
 
-//function displays upcoming events on shortcode base: [dandrive]
+//function displays folder on shortcode base: [dandrive]
 function dandrive_display($atts) {
 
 
@@ -213,6 +202,8 @@ function dandrive_display($atts) {
 		return $error;
 	}
 
+
+	//default-styling
 	$disp = "<style>
 #glist-$divid tr td {
 
@@ -289,7 +280,8 @@ $disp .= "
 
 
 
-//function loads after first page load, when folder is clicked. Has to be a better way of doing this.
+//function loads after first page load, when folder is clicked.
+
 function loadSub(folderId,hId) {
 
 	var url = 'https://www.googleapis.com/drive/v3/files?q=\'' + folderId + '\'+in+parents&orderBy=folder,name&key=$gdrive_api_key';
@@ -341,4 +333,3 @@ $disp .= "<div id='$divid'  aria-live=\"assertive\"><h2 style=\"color:white;padd
 }
 
 add_shortcode('dandrive', 'dandrive_display');
-
