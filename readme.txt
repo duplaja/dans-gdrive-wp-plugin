@@ -10,7 +10,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Dan's Viewer for Google Drive was created when I was looking for a  way to share files via Google Drive on my sites, in a way that allowed both downloading, viewing, exporting, and hardest to find, the ability drill down into subfolders without leaving the site. I couldn't find anything within my price range that fit what I needed, so I decided to create my own.
+Dan's Viewer for Google Drive was created when I was looking for a  way to share files via Google Drive on my sites, in a way that allowed downloading, viewing, exporting, and hardest to find, the ability drill down into subfolders without leaving the site. I couldn't find anything within my price range that fit what I needed, so I decided to create my own.
 
 Dan's Viewer for Google Drive displays files in a way that is mobile friendly, customizable via shortcode, and easy to style. No need to import files or manage them directly in WordPress. All you need is a public Google Drive Folder (or multiple!) and a free, easy to get API key.
 
