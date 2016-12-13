@@ -3,7 +3,7 @@ Contributors: duplaja
 Donate link: https://www.wptechguides.com/donate/
 Tags: embed, Google Drive, share files, gdrive, drive, dan
 Requires at least: 4.0.1
-Tested up to: 4.6.1
+Tested up to: 4.7.0
 Stable tag: trunk
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -95,6 +95,10 @@ Once you have set the folder as public, you can find the id with the following:
 Depends on Google Drive's JavaScript API v4
 
 == Changelog ==
+= 1.1 =
+* Moved Dashboard Link Under Tools
+* Added jQuery dependency to enqueues
+* Updated Supported Version
 
 = 1.0 =
 * Initial Plugin Release

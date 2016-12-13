@@ -4,7 +4,7 @@
 * Plugin Name: Dans Google Drive Viewer
 * Plugin URI: https://www.wptechguides.com
 * Description: A custom Google Drive Viewer w/ Folder Transversal and File Export
-* Version: 1.0
+* Version: 1.1
 * Author: Dan D
 * Author URI: https://www.convexcode.com
 **/
@@ -13,7 +13,7 @@
 //enqueues all js files needed
 function gdrive_enqueue_script() {
 
-	wp_enqueue_script( 'dans-gdrive-js', plugin_dir_url( __FILE__ ) . 'js/dandrive.js', false ); 
+	wp_enqueue_script( 'dans-gdrive-js', plugin_dir_url( __FILE__ ) . 'js/dandrive.js', array('jquery'), false ); 
 
 }
 add_action( 'wp_enqueue_scripts', 'gdrive_enqueue_script' );
@@ -24,8 +24,8 @@ add_action('admin_menu', 'dans_gdrive_plugin_menu');
 
 //creates a menu page with the following settings
 function dans_gdrive_plugin_menu() {
-	add_menu_page('Dans Google Drive Settings', 'Dans gDrive', 'administrator', 'dans-gdrive-settings', 'dans_gdrive_display_settings', 'dashicons-admin-generic');
-}
+
+	add_submenu_page('tools.php', 'Dan\'s gDrive', 'Dan\'s gDrive', 'manage_options', 'dans-gdrive-settings', 'dans_gdrive_display_settings');
 
 //on-load, sets up the following settings for the plugin
 add_action( 'admin_init', 'dans_gdrive_settings' );
