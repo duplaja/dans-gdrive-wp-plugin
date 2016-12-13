@@ -27,6 +27,8 @@ function dans_gdrive_plugin_menu() {
 
 	add_submenu_page('tools.php', 'Dan\'s gDrive', 'Dan\'s gDrive', 'manage_options', 'dans-gdrive-settings', 'dans_gdrive_display_settings');
 
+}
+
 //on-load, sets up the following settings for the plugin
 add_action( 'admin_init', 'dans_gdrive_settings' );
 
